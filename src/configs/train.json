@@ -1,0 +1,18 @@
+{
+    "model_name":"microsoft/codebert-base",
+    "batch_size":4,
+    "accumulation_step":2,
+    "max_length" : 256,
+    "epochs": 1,
+    "learning_rate" : 2e-5,
+    "alignement_weight": 1.0,
+    "device" : "cuda",
+    "train_dataset": "data/processed/train/cleaned.parquet",
+    "val_dataset" : "data/processed/valid",
+    "hidden_size" : 128,
+    "output_dim" : 128,
+    "mlm_probability" : 0.15,
+    "num_workers": 2,
+    "pin_memory" : true,
+    "save_folder" : "hub"
+}

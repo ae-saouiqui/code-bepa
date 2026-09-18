@@ -1,0 +1,6 @@
+data
+.env
+NOTE.md
+.pytest_cache
+code-jepa-env
+__pycache__/**
