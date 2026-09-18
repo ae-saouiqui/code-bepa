@@ -106,19 +106,24 @@ The predicted representation should be close to the representation of its
 corresponding solution while being distinguishable from the representations
 of other solutions in the batch.
 
-For a batch of size $N$, the similarity between the predicted representation
+For a batch of size `N`, the similarity between the predicted representation
 and a solution representation can be written as:
 
 $$
-s_{ij} = \operatorname{sim}(z_{\text{pred}}^{(i)}, z_{\text{solution}}^{(j)})
+s_{ij} =
+\mathrm{sim}
+\left(
+z_{\text{pred}}^{(i)},
+z_{\text{solution}}^{(j)}
+\right)
 $$
 
-where $i=j$ represents the positive problem-solution pair.
+where `i = j` represents the positive problem-solution pair.
 
 The InfoNCE loss is then:
 
 $$
-\mathcal{L}_{InfoNCE}
+\mathcal{L}_{\mathrm{InfoNCE}}
 =
 -\frac{1}{N}
 \sum_{i=1}^{N}
@@ -126,11 +131,12 @@ $$
 \frac{
 \exp(s_{ii}/\tau)
 }{
-\sum_{j=1}^{N}\exp(s_{ij}/\tau)
+\sum_{j=1}^{N}
+\exp(s_{ij}/\tau)
 }
 $$
 
-where $\tau$ is the temperature parameter.
+where `τ` is the temperature parameter.
 
 This encourages the model to align each problem representation with the
 representation of its corresponding solution while separating it from
@@ -142,13 +148,12 @@ the InfoNCE alignment loss:
 $$
 \mathcal{L}
 =
-\mathcal{L}_{MLM}
+\mathcal{L}_{\mathrm{MLM}}
 +
-\lambda\mathcal{L}_{InfoNCE}
+\lambda\mathcal{L}_{\mathrm{InfoNCE}}
 $$
 
-where $\lambda$ controls the contribution of the alignment objective.
-
+where `λ` controls the contribution of the alignment objective.
 
 ## Model
 ### CodeBERT

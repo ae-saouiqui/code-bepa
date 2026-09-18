@@ -3,4 +3,4 @@ data/*
 NOTE.md
 .pytest_cache
 code-jepa-env
-__pycache__/
+**/__pycache__
