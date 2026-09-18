@@ -1,4 +1,4 @@
-data
+data/*
 .env
 NOTE.md
 .pytest_cache
